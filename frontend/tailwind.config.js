@@ -9,7 +9,8 @@ module.exports = {
         darkGreen:"#00482F",
         dullGreen:"#316C58",
         lightGreen:"#267F4C",
-        limeyellow:"#DDFA88"
+        limeyellow:"#DDFA88",
+        latestGreen:"#EAFFE9"
       }
     },
   },

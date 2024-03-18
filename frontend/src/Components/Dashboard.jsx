@@ -26,7 +26,7 @@ function Dashboard() {
 
                 <div className="flex items-center mb-2 my-4 ml-10 hover:cursor-pointer">
                     <img src={income} alt="income" style={{ height: "35px", width: "35px" }} />
-                    <p className="text-lightGreen text-xl ml-2">Additional Income</p>
+                    <p className="text-lightGreen text-xl ml-2">Add Income</p>
                 </div>
 
                 <div className="flex items-center mb-2 my-4 ml-10 hover:cursor-pointer">
