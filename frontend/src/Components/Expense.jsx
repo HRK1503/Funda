@@ -14,7 +14,7 @@ function Income() {
                 <Dashboard />
                 <div className='bg-white rounded-3xl h-max w-[67%] my-10 ml-10'>
                     <div className='flex justify-center text-darkGreen'>
-                        <p className='text-3xl mt-36'>Additional Income</p>
+                        <p className='text-3xl mt-36'>Expenses</p>
                     </div>
                     <div className='flex justify-center mb-12'>
                         <div className='flex flex-col justify-center items-center bg-latestGreen rounded-3xl h-max my-10 w-1/2'>
