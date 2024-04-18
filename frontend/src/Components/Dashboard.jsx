@@ -6,7 +6,7 @@ import signout from "../images/sign-out.png"
 import profile from "../images/profile.png"
 function Dashboard() {
     return <>
-        <div className="bg-white border rounded-3xl h-max w-1/5 my-10 ml-10 overflowy-auto">
+        <div className="bg-white border rounded-3xl h-max w-1/5 py-10 ml-10 overflowy-auto">
             <div className="flex flex-col justify-center my-5">
                 <div className="flex justify-center">
                     <div className="flex flex-col items-center">
