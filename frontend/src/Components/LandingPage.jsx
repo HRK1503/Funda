@@ -1,7 +1,13 @@
 import logo from '../images/logonew.png'
+import bg_image from '../images/landing-page.png'
 function Homepage(){
     return <>
-            <div className='w-1/4 mx-auto mt-36'>
+            <div className='relative z-10'>
+                <img src={bg_image} className='h-svh w-[100%] absolute inset-0'  />
+                
+            </div>
+            <div className='relative z-20'>
+            <div className='w-1/4 mx-auto pt-32'>
                 <img src={logo} alt="Funda logo"/>
             </div>
             <div className='flex justify-center my-9'>
@@ -12,6 +18,7 @@ function Homepage(){
             </div>
             <div className='flex justify-center text-lightGreen text-xl'>
                 <p>New to the website?  <b><u>Sign up</u></b></p>
+            </div>
             </div>
     </>
 }
