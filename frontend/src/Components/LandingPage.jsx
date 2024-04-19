@@ -3,7 +3,7 @@ import bg_image from '../images/landing-page.png'
 function Homepage(){
     return <>
             <div className='relative z-10'>
-                <img src={bg_image} className='h-svh w-[100%] absolute inset-0'  />
+                <img src={bg_image} className='h-svh w-[100%] absolute inset-0' />
                 
             </div>
             <div className='relative z-20'>
