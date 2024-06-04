@@ -8,7 +8,8 @@ exports.addIncome=async(req,res) =>{
         amount,
         category,
         description,
-        date
+        date,
+        user: req.user.id
     })
 
     try{
@@ -32,7 +33,7 @@ exports.addIncome=async(req,res) =>{
 
 exports.getIncomes=async(req,res)=>{
     try{
-        const incomes=await IncomeSchema.find().sort({createdAt:-1})
+        const incomes=await IncomeSchema.find({user: req.user.id}).sort({createdAt:-1})
         res.status(200).json(incomes)
     }
     catch(e){
@@ -43,6 +44,13 @@ exports.getIncomes=async(req,res)=>{
 
 exports.deleteIncomes=async(req,res)=>{
         const {id}=req.params;
+        let income = await IncomeSchema.findById(req.params.id);
+        if (!income) { res.status(404).send("Not Found") };
+
+        //allow deletion only if user owns the note
+        if (income.user.toString() !== req.user.id) {
+            return res.status(401).send("Not Allowed");
+        }
         IncomeSchema.findByIdAndDelete(id).then((income)=>{
             res.status(200).json({message:"Income deleted"})
         }).catch((error)=>{

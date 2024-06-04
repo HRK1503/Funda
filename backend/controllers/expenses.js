@@ -8,7 +8,8 @@ exports.addExpense=async(req,res) =>{
         amount,
         category,
         description,
-        date
+        date,
+        user: req.user.id
     })
 
     try{
@@ -32,7 +33,7 @@ exports.addExpense=async(req,res) =>{
 
 exports.getExpense=async(req,res)=>{
     try{
-        const incomes=await ExpenseSchema.find().sort({createdAt:-1})
+        const incomes=await ExpenseSchema.find({user: req.user.id}).sort({createdAt:-1})
         res.status(200).json(incomes)
     }
     catch(e){
