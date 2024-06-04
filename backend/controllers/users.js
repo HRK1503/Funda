@@ -13,6 +13,7 @@ exports.createuser = async (req, res) => {
         }
 
         // Create user
+
         const salt = await bcrypt.genSalt(10);
         const securePassword = await bcrypt.hash(req.body.password, salt);
         user = await User.create({
@@ -20,6 +21,7 @@ exports.createuser = async (req, res) => {
             email: req.body.email,
             password: securePassword
         });
+
 
         const data = {
             user: {
@@ -29,6 +31,7 @@ exports.createuser = async (req, res) => {
         const authToken = jwt.sign(data, JWT_SECRET);
         res.json(authToken);
     } catch (error) {
+
         console.log(error.message);
         res.status(500).send("Internal Server Error");
     }
@@ -46,6 +49,7 @@ exports.userlogin = async (req, res) => {
         const passwordCompare = await bcrypt.compare(password, user.password);
         if (!passwordCompare) {
             console.log("Password mismatch");
+
             return res.status(400).json({ error: "Please login with correct credentials" });
         }
 
@@ -53,6 +57,7 @@ exports.userlogin = async (req, res) => {
             user: {
                 id: user.id
             }
+
         };
         const authToken = jwt.sign(data, JWT_SECRET);
         res.json(authToken);
@@ -61,3 +66,4 @@ exports.userlogin = async (req, res) => {
         res.status(500).send("Internal Server Error");
     }
 }
+
